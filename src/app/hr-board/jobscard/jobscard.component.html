@@ -1,0 +1,38 @@
+
+
+<div class="p-grid p-justify-between p-align-center">
+  <div>
+    <div class="p-toolbar">
+      <div class="p-toolbar-group-left">
+        <button pButton type="button" label="Status: Job Opened" icon="pi pi-play" (click)="getJobsByOpenedStatus()" class="p-button-rounded p-button-success"></button>
+        <button pButton type="button" label="Status: Job Closed" icon="pi pi-stop" (click)="getJobsByClosedStatus()" class="p-button-rounded p-button-danger"></button>
+      </div>
+    </div>
+
+
+<!-- <button pButton type="button" label="Status: Job Opened" icon="pi pi-play" (click)="()" class="p-button-rounded p-button-success"></button>
+<button pButton type="button" label="Status: Job Closed" icon="pi pi-stop" (click)="()" class="p-button-rounded p-button-danger"></button> -->
+</div>
+</div>
+
+<div class="p-grid " style="margin-top: 1rem" [style]="{'box-shadow': '0 0 10px rgba(0, 0, 0, 0.2)'}">
+  <ng-container *ngFor="let job of jobs; let last = last">
+    <div   class="job-card-container">
+      <p-card [header]="job.jobTitle" class="job-card" [ngClass]="{'job-card--verified': job.verified}">
+        
+
+        <div class="job-description">
+          <p class="job-field"><strong>Job Domain:</strong> {{ job.jobDomain }}</p>
+          <p class="job-field"><strong>Location:</strong> {{ job.address }}</p>
+          <p class="job-field"><strong>Hiring Lead:</strong> {{ job.hiringLead }}</p>
+          <p class="job-field"><strong>Skills Required:</strong> {{ job.skillsRequired }}</p>
+          <p class="job-field"><strong>Posted Date:</strong>{{ job.postedDate | date }}</p>
+          <p class="job-field"><strong>Department:</strong> {{ job.department }}</p>
+          <!-- <p class="job-field"><strong>Number of Applicants:</strong> {{ job.applicants }}</p> -->
+          <p class="job-field"><strong>Number of Vacancies:</strong> {{ job.vacancies }}</p>
+          <p class="job-field"><strong>Verified:</strong> {{ job.verified ? 'Yes' : 'No' }}</p>
+        </div>
+      </p-card>
+    </div>
+  </ng-container>
+</div>
